@@ -23,7 +23,7 @@ with open(RAW_JSON, encoding="utf-8") as f:
 
 df_bronze = pd.DataFrame(data["issues"])
 
-OUTPUT_CSV = PROJECT_ROOT / "data" / "2.bronze" / "ingest_bronze.csv"
+OUTPUT_CSV = PROJECT_ROOT / "data" / "bronze_layer" / "ingest_bronze.csv"
 df_bronze.to_csv(OUTPUT_CSV, index=False)
 
 print("CSV salvo em:", OUTPUT_CSV)
