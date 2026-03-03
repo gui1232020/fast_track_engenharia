@@ -239,7 +239,56 @@ python build_gold_layer.py
 - CI/CD integration
 
 ---
+## gold_sla_issues.csv
 
-# Author
+This dataset contains SLA metrics calculated at the individual issue level.
 
-Developed for Data Engineering and SLA analytics practice.
+### Columns
+
+| Column Name        | Description |
+|--------------------|------------|
+| issue_id           | Unique identifier of the Jira issue |
+| issue_type         | Type/category of the issue |
+| assignee_name      | Name of the assigned analyst |
+| issue_priority     | Priority level of the issue (High, Medium, Low) |
+| created_at         | Issue creation timestamp (UTC) |
+| resolved_at        | Issue resolution timestamp (UTC) |
+| resolution_hours   | Total resolution time calculated in business hours |
+| sla_expected_hours | Expected SLA threshold in hours based on priority |
+| is_sla_met         | Boolean flag indicating whether SLA was met |
+
+---
+
+## gold_sla_by_analyst.csv
+
+This dataset provides aggregated SLA performance metrics per analyst.
+
+### Columns
+
+| Column Name    | Description |
+|---------------|------------|
+| assignee_name | Name of the analyst |
+| issue_count   | Total number of resolved issues |
+| avg_sla_hours | Average resolution time in business hours |
+
+---
+
+## gold_sla_by_issue_type.csv
+
+This dataset provides aggregated SLA performance metrics per issue type.
+
+### Columns
+
+| Column Name    | Description |
+|---------------|------------|
+| issue_type    | Type/category of the issue |
+| issue_count   | Total number of resolved issues |
+| avg_sla_hours | Average resolution time in business hours |
+
+---
+
+## Notes
+
+- All timestamps are stored in UTC.
+- SLA calculations consider only business days based on the configured calendar.
+- These datasets are intended for BI tools, dashboards, and analytical reporting.
